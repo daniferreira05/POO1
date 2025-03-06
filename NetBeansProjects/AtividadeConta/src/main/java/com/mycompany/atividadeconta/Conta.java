@@ -1,6 +1,7 @@
 
 package com.mycompany.atividadeconta;
 
+
 public class Conta {
     
     int numero;
@@ -8,18 +9,22 @@ public class Conta {
     double saldo;
     double limite;
     
-    void Sacar(double v){
-      System.out.println("Saldo: " + saldo);
-      System.out.println("Digite o valor para o saque: " + numero);
-      v = numero - saldo;
-      System.out.println("Limite: " + limite);
-      System.out.println("Saque: " + v);
+    void sacar(double v){
+        if(v > 0 && v <= limite && saldo >= v){
+            saldo -= v;
+            System.out.println("\tSaque realizado com sucesso! Novo saldo: " + saldo);
+        }else{
+            System.err.println("\tSaldo insuficiente!");
+        }
     }
     
-    void Depositar(double v){
-        System.out.println("Nome: " + nome);
-        System.out.println("Saldo: " + saldo);
-        System.out.println("Limite: " + limite);
+    void depositar(double v){
+        if(v > 0){
+            saldo += v;
+            System.out.println("\tDepósito realizado com sucesso! Novo saldo: " + saldo);
+        }else{
+            System.err.println("\tValor de depósito inválido!");
+        }
     }
     
 
